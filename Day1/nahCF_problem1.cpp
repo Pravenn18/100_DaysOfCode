@@ -75,27 +75,43 @@ void solve(){
     int t;
     cin >> t;
     while(t--){
-        int n;
-        cin >> n;
-        vector<int> a(n);
-        vector<int> b(n);
-        for(auto &val1 : a)cin >> val1;
-        for(auto &val2 : b)cin >> val2;
-        
-        int maxa = 0;
-        int maxb = 0;
-        for(int i = 0; i < n; i++){
-            if(a[i] < b[i]){
-                continue;
-            }else{
-                swap(a[i], b[i]);
-            }
-        }
-        for(int i = 0; i < n; i++){
-            maxa = std::max(a[i], maxa);
-            maxb = std::max(b[i], maxb);
-        }
-        cout << maxa*maxb << endl;
+		int n;
+		cin >> n;
+		vector<int> v(n);
+		vector<int> w;
+		map<int, int> m;
+		for(int i = 0; i < n; i++){
+			int x;
+			cin >> x;
+			v.push_back(x);
+			w.push_back(x);
+			m[x] = i;
+		}
+		vector<int> ans(n);
+		vector<int> tem;
+		for(int i = 1; i < n; i++){
+			tem.push_back(i);
+			tem.push_back(-1*i);
+		}
+		sort(v.begin(), v.end());
+		reverse(v.begin(), v.end());
+		for(int i = 0; i < n; i++){
+			ans[m[v[i]]] = tem[i];
+		}
+		int sum = 0;
+		for(int i = 0; i < n; i++){
+			if(ans[i] < 0){
+				sum += (-1*ans[i]*w[i]);
+			}else{
+				sum += ans[i]*w[i];
+			}
+		}
+		cout << 2*sum << endl;
+		cout << 0 << " ";
+		for(int z : ans){
+			cout << z << " ";
+		}
+		cout << endl;
     }
 }
 

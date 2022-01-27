@@ -1,2 +1,4 @@
+# Date-28/01/22
+
 CF_problem1
-Problem link - https://codeforces.com/problemset/problem/1614/B
+Problem link - https://codeforces.com/contest/1631/problem/A
