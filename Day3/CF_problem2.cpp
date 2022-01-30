@@ -71,21 +71,34 @@ ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 /*--------------------------------------------------------------------------------------------------------------------------*/
-void solve(){
+int solve(){
     int t;
     cin >> t;
     while(t--){
-        int n, m;
-        cin >> n >> m;
+        int n;
+        cin >> n;
+        vector<long long int> v(n);
+        for(auto &val : v)cin >> val;
 
-        if(n == 1 && m == 1){
-            cout << 0 << endl;
-        }else if(n == 1 || m == 1){
-            cout << 1 << endl;
-        }else{
-            cout << 2 << endl;
+        int mul = 0;
+        for(int i = 0; i < n; i++){
+            while(v[i]%2 == 0){
+                v[i]/=2;
+                mul++;
+            }
         }
+        sort(v.begin(), v.end());
+        reverse(v.begin(), v.end());
+        long long int ans = 0;
+        for(int i = 0; i < mul; i++){
+            v[0] *= 2;
+        }
+        for(int i = 0; i < n; i++){
+            ans += v[i];
+        }
+        cout << ans << endl;
     }
+    return 0;
 }
 
 int main() {
@@ -101,3 +114,4 @@ int main() {
 	cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
 }
+
