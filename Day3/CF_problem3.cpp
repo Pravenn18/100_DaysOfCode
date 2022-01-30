@@ -77,27 +77,25 @@ int solve(){
     while(t--){
         int n;
         cin >> n;
-        vector<long long int> v(n);
-        for(auto &val : v)cin >> val;
-
-        int mul = 0;
+        string s;
+        cin >> s;
+        
+        int z = 0;
+        int o = 0;
         for(int i = 0; i < n; i++){
-            while(v[i]%2 == 0){
-                v[i]/=2;
-                mul++;
+            if(s[i] == '0'){
+                z++;
+            }else{
+                o++;
             }
         }
-        sort(v.begin(), v.end());
-        reverse(v.begin(), v.end());
-        long long int ans = 0;
-        cout << mul;
-        // for(int i = 0; i < mul; i++){
-        //     v[0] *= 2;
-        // }
-        // for(int i = 0; i < n; i++){
-        //     ans += v[i];
-        // }
-        // cout << ans << endl;
+        if(n < 2){
+            cout << "YES" << endl;
+        }else if(o == 1 && z == 1){
+            cout << "YES" << endl;
+        }else{
+            cout << "NO" << endl;
+        }
     }
     return 0;
 }
