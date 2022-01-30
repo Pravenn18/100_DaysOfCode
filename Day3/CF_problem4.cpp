@@ -77,24 +77,19 @@ int solve(){
     while(t--){
         int n;
         cin >> n;
-        string s;
-        cin >> s;
-        
-        int z = 0;
-        int o = 0;
-        for(int i = 0; i < n; i++){
-            if(s[i] == '0'){
-                z++;
-            }else{
-                o++;
-            }
-        }
-        if(n < 2){
-            cout << "YES" << endl;
-        }else if(o == 1 && z == 1){
-            cout << "YES" << endl;
+        vector<int> v(n);
+        for(auto &val : v)cin >> val;
+
+        if(n == 1){
+            cout << v[0] << endl;
+        }else if(n != v[0] && n != v[n-1]){
+            cout << -1 << endl;
         }else{
-            cout << "NO" << endl;
+            reverse(v.begin(), v.end());
+            for(int x : v){
+                if(x != n)cout << x << " ";
+            }
+            cout << n << endl;
         }
     }
     return 0;
@@ -113,3 +108,4 @@ int main() {
 	cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
 }
+
