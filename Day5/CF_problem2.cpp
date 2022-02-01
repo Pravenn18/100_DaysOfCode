@@ -92,28 +92,17 @@ int solve(){
             ans = min(ze, on);
             cout << ans << endl;
         }else{
-            string ns = s;
-            string sub1 = s.substr(1,s.size());
-            string sub2 = ns.substr(0,s.size()-1);
-            int o1 = 0;
-            int z1 = 0;
-            int o2 = 0;
-            int z2 = 0;
+            string sub1 = s.substr(0,s.size()-1);
+            on = 0;
+            ze = 0;
             for(int i = 0; i < sub1.size(); i++){
                 if(s[i] == '0'){
-                    z1++;
+                    ze++;
                 }else{
-                    o1++;
+                    on++;
                 }
             }
-            for(int i = 0; i < sub2.size(); i++){
-                if(s[i] == '0'){
-                    z2++;
-                }else{
-                    o2++;
-                }
-            }
-            ans = max(min(z1, o1), min(z1, o1));
+            ans = min(ze, on);
             cout << ans << endl;
         }
     }
