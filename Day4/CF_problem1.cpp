@@ -71,16 +71,13 @@ ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 /*--------------------------------------------------------------------------------------------------------------------------*/
-void solve(){
-    long long int w,h,n,out;
-	cin >> w>>h;
-	n=(w+h);
-	out=1;
-	for(int i=0;i<n;i++){
-	    out=out*2;
-	    out=out%998244353;
-	}
-	cout << out << endl;
+int solve(){
+    int t;
+    cin >> t;
+    while(t--){
+        
+    }
+    return 0;
 }
 
 int main() {
@@ -96,3 +93,4 @@ int main() {
 	cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
 }
+
