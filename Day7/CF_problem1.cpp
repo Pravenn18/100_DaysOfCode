@@ -84,7 +84,7 @@ int solve(){
             if(s[0] == 'a'){
                 s[0] = 'b';
             }else{
-                s[0] = 'a';
+                s[0] = 'a'; 
             }
             cout << s << endl;
         }
