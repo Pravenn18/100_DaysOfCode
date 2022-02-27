@@ -24,27 +24,34 @@ bool sortd(const pair<int,int> &a,const pair<int,int> &b){return (a.second > b.s
 void printarr(ll arr[], ll n){fl(i,n) cout << arr[i] << " ";cout << "\n";}
 string decToBinary(int n){string s="";int i = 0;while (n > 0) {s =to_string(n % 2)+s;n = n / 2;i++;}return s;}
 ll binaryToDecimal(string n){string num = n;ll dec_value = 0;int base = 1;int len = num.length();for(int i = len - 1; i >= 0; i--){if (num[i] == '1')dec_value += base;base = base * 2;}return dec_value;}
-bool isPrime(int n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for(int i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
+bool isPrime(ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for(int i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
 bool isPowerOfTwo(int n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
-//Code by Praveen kumar
+bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
+ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;}return res;}
+ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
+//Code by Abhinav Awasthi
 //Language C++
 //Practice->Success
 void asquare()
 {
-    int n, m;
-    cin >> n >> m;
-
-    int ans = 0;
-    if(n == 1){
-        ans = m/2;
-    }else{
-        if(n%2 == 0){
-            ans = (m/2)*n;
-        }else{
-            ans = (n/2)*m;
-        }
+    int a, b, c, m;
+    cin >> a >> b >> c >> m;
+    vector<int> v;
+    v.push_back(a);
+    v.push_back(b);
+    v.push_back(c);
+    sort(v.begin(), v.end());
+    int maxt = (a-1)+(b-1)+(c-1);
+    int mint = 0;
+    mint = v[2]-v[0]-v[1];
+    if(mint > 0){
+        mint = mint-1;
     }
-    cout << ans << endl;
+    if(m >= mint && m <= maxt){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
+    }
 }
 int main()
 {
