@@ -34,26 +34,10 @@
     //Practice->Success
     void asquare()
     {
-        int n, s;
+        ll n, s;
         cin >> n >> s;
 
-        int temp = (n*n)*(n+1);
-        if(n == s){
-            cout << 1 << endl;
-        }else{
-            if(temp == s){
-                cout << n+1 << endl;
-            }else if(temp < s){
-                cout << n << endl;
-            }else{
-                temp = n*n;
-                if(s-temp >= n){
-                    cout << 1 << endl;
-                }else if(s-temp < n){
-                    cout << 0 << endl;
-                }
-            }
-        }
+        cout << s/(n*n) << endl;
     }
     int main()
     {
