@@ -56,7 +56,7 @@
             }else{
                 break;
             count = 0;
-
+        }
         }
         for(int x : v){
             ans += x;
